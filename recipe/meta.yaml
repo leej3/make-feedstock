@@ -26,15 +26,15 @@ build:
 
 requirements:
   build:
+    - {{ compiler("c") }}        # [unix]
+    - {{ compiler("m2w64_c") }}  # [win]
 {% if bootstrapping != 'yes' %}
     - libtool  # [unix]
     - bash     # [unix]
-{% endif %}
-    - {{ compiler("c") }}        # [unix]
-    - {{ compiler("m2w64_c") }}  # [win]
     - make  # [build_platform != target_platform]
   host:
   run:
+{% endif %}
 
 test:
   commands:
